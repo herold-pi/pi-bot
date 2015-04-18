@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DIR=/home/pi/herold/pibot
-DAEMON=node_modules/.bin/hubot
+DAEMON=$DIR/node_modules/.bin/hubot
 ENV_FILE=$DIR/.env
 DAEMON_NAME=pibot
 DAEMON_OPTS="--adapter slack"
