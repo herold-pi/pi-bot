@@ -1,22 +1,19 @@
 #!/bin/sh
 
 DIR=/home/pi/herold/pibot
-DAEMON=bin/hubot
-ENV_FILE=.env
+DAEMON=node_modules/.bin/hubot
+ENV_FILE=$DIR/.env
 DAEMON_NAME=pibot
 DAEMON_OPTS="--adapter slack"
 DAEMON_USER=root
 
 PIDFILE=/var/run/$DAEMON_NAME.pid
  
-. /lib/lsb/init-functions
  
 do_start () {
-    pushd $DIR
     log_daemon_msg "Starting system $DAEMON_NAME daemon"
     . $ENV_FILE
-    start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --chuid $DAEMON_USER --startas $DAEMON -- $DAEMON_OPTS  > /var/log/pibot.log 2>&1
-    popd
+    start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --chuid $DAEMON_USER --startas $DAEMON -- $DAEMON_OPTS > /var/log/pibot.log 2>&1
     log_end_msg $?
 }
 do_stop () {
