@@ -19,7 +19,7 @@ do_start () {
     start-stop-daemon --no-close --user $USER --start --pidfile $PIDFILE -c $USER:$GROUP \
       --make-pidfile \
       --background --chdir $DIR --exec $DAEMON -- \
-        $DAEMON_ARGS >> $LOGFILE 2>&1 || return 23
+        $DAEMON_OPTS >> $LOGFILE 2>&1 || return 23
 
     log_end_msg $?
 }
