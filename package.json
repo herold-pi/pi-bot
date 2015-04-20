@@ -15,6 +15,7 @@
     }
   ],
   "dependencies": {
+    "forever": "^0.14.1",
     "hubot": "^2.11.4",
     "hubot-redis-brain": "0.0.2",
     "hubot-slack": "^3.3.0",

@@ -1,7 +1,6 @@
+.env
 node_modules
 .DS_Store*
-token.sh
-m.sh
 .idea
 *.log
 config/deploy
